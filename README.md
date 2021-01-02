@@ -1,2 +1,2 @@
-# amazoforest
+# AmazoForest
  AmazonForest: In-silico pathogenic metaprediction of pathogenic variants
