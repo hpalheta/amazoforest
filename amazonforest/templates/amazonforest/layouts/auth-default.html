@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>AmazonForest</title>
+  <meta name="description" content="AmazonForest">
+
+  {% include 'amazonforest/includes/header.html' %}
+
+</head>
+
+<body>
+  <div class="row" style="background-color: rgb(4, 47, 71);height: 50px;">
+        </div>
+
+  {% include 'amazonforest/includes/sidenav.html' %}
+  <div class="main-content">
+
+    {{ content | safe }}
+
+    {% include 'amazonforest/includes/scripts.html' %}
+  </div>
+
+</body>
+
+</html>
