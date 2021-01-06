@@ -4,7 +4,7 @@
  
 Get Download biotools in https://drive.google.com/drive/folders/1lXzja7ayWpVIbrtv9ej-UDK1pZ1bFTtB?usp=sharing
 
-put files in amazonforest/biottols/
+put files in amazonforest/biotools/
 
 
 Use
