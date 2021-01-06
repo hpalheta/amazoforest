@@ -2,7 +2,7 @@
  AmazonForest: In-silico pathogenic metaprediction of pathogenic variants
  
  
-Get Download biotools in https://drive.google.com/drive/folders/1lXzja7ayWpVIbrtv9ej-UDK1pZ1bFTtB?usp=sharing
+Get Download biotools in https://drive.google.com/drive/folders/1LvDn8GVubsQ-Axs16FLLn_kw80n5RnQc?usp=sharing
 
 put files in amazonforest/biotools/
 
