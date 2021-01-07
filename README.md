@@ -6,6 +6,9 @@ Get Download biotools in https://drive.google.com/drive/folders/1LvDn8GVubsQ-Axs
 
 put files in amazonforest/biotools/
 
+Get Download data.zip in https://drive.google.com/drive/folders/1LvDn8GVubsQ-Axs16FLLn_kw80n5RnQc?usp=sharing
+
+put files in amazonforest/ic/data
 
 Use
 
