@@ -1,0 +1,281 @@
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+
+<div class="card shadow" style="margin-top: 10px;">
+  <div class="card-header bg-secondary">
+      <h5 class="mb-0">
+        <p class="mb-0 text-white">Data</p></h4>
+  </div>
+  <div class="card-body">
+      <div class="container">
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Clinvar, February 2021</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row">
+                <div class="col-xl-3 col-lg-6">
+                  <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body bg-ligth">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">{{datasig[0][0]}}</h5>  
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                            <i class="fas fa-bars"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="mt-3 mb-0 text-muted text-sm">
+                        <span class="text-blue mr-2 font-weight-bold "><i class="fas"></i> {{datasig[0][1]}}</span>
+                        <span class="text-nowrap">.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                  <div class="card card-stats mb-4 mb-xl-0 bg-ligth">
+                    <div class="card-body ">
+                      <div class="row">
+                        <div class="col text-white">
+                          <h5 class="card-title text-uppercase text-muted mb-0" style="color:white">{{datasig[2][0]}}</h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-danger text-white rounded-circle shadow">
+                            <i class="fas fa-bars"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="mt-3 mb-0 text-muted text-sm">
+                        <span class="text-blue mr-2 font-weight-bold "><i class="fas"></i> {{datasig[2][1]}}</span>
+                        <span class="text-nowrap">.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                  <div class="card card-stats mb-4 mb-xl-0">
+                    <div class="card-body bg-ligth">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">{{datasig[1][0]}}</h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                            <i class="fas fa-bars"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="mt-3 mb-0 text-muted text-sm">
+                        <span class="text-blue mr-2 font-weight-bold "><i class="fas"></i> {{datasig[1][1]}}</span>
+                        <span class="text-nowrap">.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                  <div class="card card-stats mb-4 mb-xl-0 bg-ligth">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">{{datasig[3][0]}}</h5>
+                        </div>
+                        <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-yellow text-white rounded-circle shadow">
+                            <i class="fas fa-bars"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="mt-3 mb-0 text-muted text-sm">
+                        <span class="text-blue mr-2 font-weight-bold "><i class="fas"></i> {{datasig[3][1]}}</span>
+                        <span class="text-nowrap">.</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Filters </p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <form method="POST">
+                <div class="mt-12">
+                    <div class="row">
+                        <div class=" col-lg-2">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                        for="chrom">Chromosome</label>
+                                    <select class="form-control" id="chrom" name="chrom">
+                                        <option value="-1" {% if chrom =='-1' %}selected="selected" {% endif %}>Select
+                                        </option>
+                                        <option value="1" {% if chrom =='1' %}selected="selected" {% endif %}>1</option>
+                                        <option value="2" {% if chrom =='2' %}selected="selected" {% endif %}>2</option>
+                                        <option value="3" {% if chrom =='3' %}selected="selected" {% endif %}>3</option>
+                                        <option value="4" {% if chrom =='4' %}selected="selected" {% endif %}>4</option>
+                                        <option value="5" {% if chrom =='5' %}selected="selected" {% endif %}>5</option>
+                                        <option value="6" {% if chrom =='6' %}selected="selected" {% endif %}>6</option>
+                                        <option value="7" {% if chrom =='7' %}selected="selected" {% endif %}>7</option>
+                                        <option value="8" {% if chrom =='8' %}selected="selected" {% endif %}>8</option>
+                                        <option value="9" {% if chrom =='9' %}selected="selected" {% endif %}>9</option>
+                                        <option value="10" {% if chrom =='10' %}selected="selected" {% endif %}>10</option>
+                                        <option value="11" {% if chrom =='11' %}selected="selected" {% endif %}>11</option>
+                                        <option value="12" {% if chrom =='12' %}selected="selected" {% endif %}>12</option>
+                                        <option value="13" {% if chrom =='13' %}selected="selected" {% endif %}>13</option>
+                                        <option value="14" {% if chrom =='14' %}selected="selected" {% endif %}>14</option>
+                                        <option value="15" {% if chrom =='15' %}selected="selected" {% endif %}>15</option>
+                                        <option value="16" {% if chrom =='16' %}selected="selected" {% endif %}>16</option>
+                                        <option value="17" {% if chrom =='17' %}selected="selected" {% endif %}>17</option>
+                                        <option value="18" {% if chrom =='18' %}selected="selected" {% endif %}>18</option>
+                                        <option value="19" {% if chrom =='19' %}selected="selected" {% endif %}>19</option>
+                                        <option value="20" {% if chrom =='20' %}selected="selected" {% endif %}>20</option>
+                                        <option value="21" {% if chrom =='21' %}selected="selected" {% endif %}>21</option>
+                                        <option value="22" {% if chrom =='22' %}selected="selected" {% endif %}>22</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-lg-3">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                        for="sigall">Significance</label>
+                                    <select class="form-control" id="sigall" name="sigall">
+                                        <option value="-1" {% if "-1" == sigall %}selected="selected" {% endif %}>Select</option>
+                                        {% for sig in sigalldata %}
+                                        <option value="{{sig[1]}}" {% if sigall == sig[1] %}selected="selected" {% endif %} >{{sig[1]}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-lg-3">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="mc">MC</label>
+                                    <select class="form-control" id="mc" name="mc">
+                                        <option value="-1" {% if "-1" == cmc %}selected="selected" {% endif %}>Select</option>
+                                        {% for mc in climcdata %}
+                                        <option value="{{mc[1]}}" {% if cmc == mc[1] %}selected="selected" {% endif %} >{{mc[1]}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-lg-2">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label class="form-control-label"
+                                        for="chrom">Limit</label>
+                                        <input type="text" id="limit" name="limit"
+                                        class="form-control form-control-alternative" placeholder="Limit"
+                                        value={{limit}}>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" col-lg-2">
+                            <div style="display: flex;margin-top: 20px;">
+                                <div style="text-align:center;justify-content: center;align-items:flex-end;flex-direction: column;">
+                                    <input class="btn  btn-primary" type=submit value=Filter>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </form>
+              <br>
+              <table id="data_table" >
+                <thead>
+                    <tr>
+                        <th scope="col">CHROM</th>
+                        <th scope="col">POS</th>
+                        <th scope="col">REF</th>
+                        <th scope="col">ALT</th>
+                        <!-- <th scope="col">CLNDISDB</th>
+                        <th scope="col">CLNDN</th> -->
+                        <!-- <th scope="col">CLNHGVS</th>
+                        <th scope="col">CLNREVSTAT</th> -->
+                        <th scope="col">CLNSIG</th>
+                        <!-- <th scope="col">CLNSIGALL</th> -->
+                        <th scope="col">CLNVC</th>
+                        <!-- <th scope="col">MC</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key,item in data.iterrows() %}
+                    <tr>
+                        <td>
+                          {{item["CHROM"]}}
+                        </td>
+                        <td>
+                          {{item["POS"]}}
+                        </td>
+                        <td>
+                          {{item["REF"]}}
+                        </td>
+                        <td>
+                          {{item["ALT"]}}
+                        </td>
+                        <!-- <td>
+                                {{item["CLNDISDB"]}}
+                        </td>
+                        <td>
+                                {{item["CLNDN"]}}
+                        </td> -->
+                        <!-- <td>
+                                {{item["CLNHGVS"]}}
+                        </td>
+                        <td>
+                                {{item["CLNREVSTAT"]}}
+                        </td> -->
+                        <td>
+                                {{item["CLNSIG"]}}
+                        </td>
+                        <!-- <td>
+                                {{item["CLNSIGALL"]}}
+                        </td> -->
+                        <td>
+                                {{item["CLNVC"]}}
+                        </td>
+                        <!-- <td>
+                                {{item["MC"]}}
+                        </td> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script>
+ 
+  $(document).ready(function() {
+    $('#data_table').DataTable( {
+      searching: false, paging: false, info: false,
+    } );
+  } );
+</script>

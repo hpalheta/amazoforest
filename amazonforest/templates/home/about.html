@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AmazonForest</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/bootstrap/v30/bootstrap.min.css') }}" type="text/css"> 
+
+    
+    <!-- link href="css/bootstrap.min.css" rel="stylesheet" -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='aforest/css/stylish-portfolio.css') }}" type="text/css">
+    <!-- link href="css/stylish-portfolio.css" rel="stylesheet" -->
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='aforest/font-awesome/css/font-awesome.min.css') }}"
+        type="text/css">
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
+
+
+    <script src="https://kit.fontawesome.com/609ed3ec10.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+<body>
+    <!--body style="background-color:rgb(79, 122, 178);"-->
+    <section id="top" class="services bg-primary header" style="height: 180px;" >
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h1 style="padding-bottom:15px;padding-top:0px;">
+                        <a  href="/amazonforest"><img src="{{ url_for('static', filename='images/logo/logo.png') }}"> </a>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color:rgb(187, 187, 197);">
+        <div style="height: 10px;"></div>
+    </section>
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary" style="background-color:rgb(110, 116, 150);">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p style="padding-bottom:0px;padding-top:5px;">
+                        <font size="4px">AmazonForest aims to improve user experience towards pathogenicity prediction.
+                        </font>
+                    </p>
+                    <p style="padding-bottom:20px;padding-top:0px;">
+                        <font size="4px">A Random forest model performs meta-prediction of pathogenicity of VUS,
+                            CI, and new genetic variants.</font>
+                    </p>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <section id="contact" class="contact" style="padding-bottom:0px;padding-top:30px;">
+        <footer style="padding-bottom:0px;padding-top:0px;">
+            <div class="container" style="padding-bottom:0px;padding-top:0px;">
+                <div class="row" style="padding-bottom:0px;padding-top:0px;">
+                    <div class="col-lg-10 col-lg-offset-1 text-center" style="padding-bottom:0px;padding-top:0px;">
+
+                        <h3><strong>Acknowledgments</strong></h3>
+                        <p>
+                            Acknowledgments: We would like to thank reviewers from Rede de Pesquisa em Genômica Populacional
+              Humana/Coordenação de Aperfeiçoamento de Pessoal de Nível Superior – CAPES (Bio. Computacional, No.
+              3381/2013); Conselho Nacional de Desenvolvimento Científico e Tecnológico – CNPq.
+                        </p>
+                        <br>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://www.ufpa.br"> 
+                                        <img src="{{ url_for('static', filename='images/logo/ufpa.png') }}" style="height: 60px;width:50px">
+                                </a> 
+                            </li>                            
+                            <li>
+                                <a href="https://www.gov.br/capes/pt-br"> 
+                                        <img src="{{ url_for('static', filename='images/logo/capes.png') }}" style="height: 60px;width:60px">
+                                </a> 
+                            </li>
+                            <li>
+                                <a href="https://www.gov.br/cnpq/pt-br"> 
+                                        <img src="{{ url_for('static', filename='images/logo/cnpq.png') }}" style="height: 100px;width:100px">
+                                </a> 
+                            </li>
+                            <li>
+                                <a href=""> 
+                                        <img src="{{ url_for('static', filename='images/logo/pgph.png') }}" style="height: 60px;width:100px">
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="https://www.lghm.com.br"> 
+                                        <img src="{{ url_for('static', filename='images/logo/lghm.png') }}" style="height: 60px;width:120px">
+                                </a> 
+                            </li>
+
+                            <li>
+                                <a href="https://www.lghm.com.br"> 
+                                        <img src="{{ url_for('static', filename='images/logo/ppgbm.png') }}" style="height: 60px;width:120px">
+                                </a> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <section id="contact" class="contact" style="padding-bottom:0px;padding-top:10px;">
+        <footer style="padding-bottom:0px;padding-top:0px;">
+            <div class="container" style="padding-bottom:0px;padding-top:0px;">
+                <div class="row" style="padding-bottom:0px;padding-top:0px;">
+                    <div class="col-lg-10 col-lg-offset-1 text-center" style="padding-bottom:0px;padding-top:0px;">
+                        <h2><strong>Team</strong></h2>
+                        <div class="row align-items-center" style="margin-top: 40px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4784582T1">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/andrea.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Ândrea Ribeiro-dos-Santos</strong> Professora Titular da Universidade Federal do Pará, atua nos Programas de Pós-Graduação em: Genética e Biologia Molecular (PPGBM), Oncologia e Ciências Médicas (PPGOCM) e Diabetes (PPGDIABETES), todos da UFPA. Atualmente compõe a diretoria da Sociedade Brasileira de Genética (SBG). 
+                            </div>
+                        </div>
+                        <div class="row align-items-center" style="margin-top: 20px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4293764D0">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/gil.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Gilderlanio Santana de Araújo</strong> Doutor em Bioinformática (UFMG) com ênfase em Mineração de Dados Genéticos, Genética de Populações e GWAS. Mestre em Ciências da Computação pelo Centro de Informática (Cin-UFPE) com ênfase em Bioinformática, métodos estatísticos e de aprendizado de máquina aplicados a GWAS para doenças neuropsiquiátricas. 
+                            </div>
+                        </div>
+                        <div class="row align-items-center" style="margin-top: 20px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4427374T2">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/helber.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Hélber Palheta</strong> Analista em Tecnologia da Informação (UFPA), Mestre em Genética e Biologia Molecular- Linha Pesquisa Bioinformática (UFPA),
+                                 Discente de doutorado em Genética e Biologia Molecular, Bioinformática (UFPA). 
+                            </div>
+                        </div>
+
+                        <!-- <div class="row align-items-center" style="margin-top: 20px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K4436036P9">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/wander.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Wanderson Gonçalves</strong> É Graduado em Ciências Biológicas pelo Instituto Federal de Educação, Ciência e Tecnologia do Pará, IFPA; em Ciências Naturais com Habilitação em Física pela Universidade do Estado do Pará, UEPA. Mestre em Ciências Ambientais pela Universidade do Estado do Pará, UEPA. Doutorando em Oncologia e Ciências Médicas pela Universidade Federal do Pará, UFPA. 
+                            </div>
+                        </div>
+                        <div class="row align-items-center" style="margin-top: 20px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K8452149P9">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/arthur.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Arthur Ribeiro dos Santos</strong> Graduado em Engenharia Biomédica pela Universidade Federal do Pará (UFPA), 2019. Título do trabalho de conclusão de curso: Differential Expression of miRNAs inTuberculosis. 2 artigos publicados em revistas internacionais de impacto.
+                            </div>
+                        </div>
+                        <div class="row align-items-center" style="margin-top: 20px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K8620339J9">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/leo.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Leonardo Miranda</strong>Mestando em Genética e Biologia Molecular com ênfase em Bioinformática. Bacharel em Engenharia Biomédica pela Universidade Federal do Pará (UFPA). Durante a graduação atuou como pesquisador de iniciação científica no Laboratório de Processamento de Sinais (LAPS), na área de avaliação de qualidade visual, e no Laboratório de Genética Humana de Médica (LGHM). 
+                            </div>
+                        </div>
+                        <div class="row align-items-center" style="margin-top: 20px;">
+                            <div class="col-md-2 mb-2"></div>
+                            <div class="col-md-2 mb-2 align-content-lg-between"><a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?metodo=apresentar&id=K2776468H1">
+                                 <img style="display: inline-block;height: 80px;width:80px" src= "{{ url_for('static', filename='images/avatar/marlon.png') }}"  alt=""></a></div>
+                            <div class="col-md-6 mb-6 text-left">
+                                <strong>Marlon Matsumoto</strong> Bacharel em Biotecnologia pela Universidade Federal do Pampa (UNIPAMPA). Possui experiência com Bioinformática, onde realizou e vem realizando projetos de pesquisa sobre genética de populações, possui conhecimento em Linguagem R e Python. 
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <section id="contact" class="contact" style="padding-bottom:0px;padding-top:30px;">
+        <footer style="padding-bottom:0px;padding-top:0px;">
+            <div class="container" style="padding-bottom:0px;padding-top:0px;">
+                <div class="row" style="padding-bottom:0px;padding-top:0px;">
+                    <div class="col-lg-10 col-lg-offset-1 text-center" style="padding-bottom:0px;padding-top:0px;">
+
+                        <h4><strong>LGHM Bioinformatics </strong></h4>
+
+                        <p>
+
+                            AmazonForest was developed at the
+                            Laboratory of Human and Medical Genetics,
+                            <br> Institute of Biological Sciences, Graduate Program
+                            of Genetics and Molecular
+                            Biology,
+                            <br>Federal University of Pará, Belém , Brazil.
+                            <br>
+                            <br>
+
+                        </p>
+                        <ul class="list-unstyled" style="padding-bottom:0px;padding-top:0px;">
+                            <li><i class="fa fa-phone fa-fw"></i> +55 (91)3201-7843</li>
+                            <li><i class="fa fa-envelope-o fa-fw"></i> <a
+                                    href="mailto:helber@ufpa.br">helber@ufpa.br</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul class="list-inline">
+
+                            <li>
+                                <a href="https://www.lghm.com.br"><i class="fab fa-firefox fa-fw fa-3x"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/LGHM_UFPA/"><i class="fab fa-twitter fa-fw fa-3x"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/lghm_ufpa/"><i
+                                        class="fab fa-instagram fa-fw fa-3x"></i></a>
+                            </li>
+                        </ul>
+                        <hr class="small" style="padding-bottom:0px;padding-top:0px;">
+                        <p class="text-muted">Copyright &copy; Laboratory of Human and Medical Genetics 2021<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>

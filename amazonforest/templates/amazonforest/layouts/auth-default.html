@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Helber Palheta">
+    <title>AmazonForest</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/bootstrap/css/bootstrap.min.css') }}" type="text/css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-html5-1.7.0/b-print-1.7.0/r-2.2.7/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.3/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-html5-1.7.0/b-print-1.7.0/r-2.2.7/rg-1.1.2/rr-1.2.7/sc-2.0.3/sb-1.0.1/sp-1.2.2/sl-1.3.3/datatables.min.js"></script>
+
+    <!-- <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script> -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/dashboard.css') }}"  rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/sidebars.css') }}"  rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/609ed3ec10.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="bg-light">
+    
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="home" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+      </symbol>
+    </svg>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="background-image: linear-gradient(to right, rgb(0, 0, 0) , rgb(35, 35, 37), rgb(69, 74, 100));"  >
+      <a class="navbar-brand col-md-12 col-lg-12 me-0 px-3" href="#"><img src="{{ url_for('static', filename='images/logo/logo.png') }}" style="margin-left:10px; height: 40px; width:180px"></a>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-1 bg-light" >
+          <div id="sidebarMenu" class="md-md-block bg-light sidebar" >
+            <div class="position-sticky pt-3"> 
+              <!-- style="width: 4.5rem;" -->
+              <div class="d-flex flex-column" > 
+                <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ">
+                  <li class="nav-item ">
+                    <a href="/amazonforest" class="nav-link py-3 border-bottom " title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <svg class="bi" width="24" height="24"><use xlink:href="#home"/></svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/amazonforest/bygenomics" class="nav-link py-3 border-bottom" title="Predict by Genomics" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-flask fa-lg"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/amazonforest/bypredictors" class="nav-link py-3 border-bottom" title="Use SnpSift Annotation" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-cogs fa-lg"></i>
+                    </a>
+                  </li>                  
+                  <li>
+                    <a href="/amazonforest/model" class="nav-link py-3 border-bottom" title="Model" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-line-chart fa-lg"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/amazonforest/modeldata" class="nav-link py-3 border-bottom" title="Data Summary" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-list-alt fa-lg"></i>
+                    </a>
+                  </li> 
+                  <li>
+                    <a href="/amazonforest/predictvus" class="nav-link py-3 border-bottom" title="Reclassified Clinvar Data" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-play-circle fa-lg"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/amazonforest/rfprob" class="nav-link py-3 border-bottom" title="High Probability Dataset" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-play-circle-o fa-lg"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/amazonforest/data" class="nav-link py-3 border-bottom" title="View Data" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-database fa-lg"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/amazonforest/team" class="nav-link py-3 border-bottom" title="Team" data-bs-toggle="tooltip" data-bs-placement="right">
+                      <i class="fa fa-info fa-lg"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-11 bg-light" style="margin-left: 55px;">
+          <div>
+            {{ content | safe }}
+          </div>
+        </div>
+      </div>
+    <script src= {{ url_for('static', filename='vendors/bootstrap/js/bootstrap.bundle.min.js') }} ></script>
+    <script src= {{ url_for('static', filename='scripts/sidebars.js') }} ></script>
+    
+  </body>
+</html>

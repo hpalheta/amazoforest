@@ -1,0 +1,7 @@
+Flask
+Flask-Bcrypt
+Flask-Cors
+Flask-Login
+Flask-Materialize
+Flask-SQLAlchemy
+Flask-WTF

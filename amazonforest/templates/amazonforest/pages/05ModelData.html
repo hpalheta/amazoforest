@@ -1,0 +1,109 @@
+
+
+<div class="card shadow" style="margin-top: 10px;">
+  <div class="card-header bg-secondary">
+      <h5 class="mb-0">
+        <p class="mb-0 text-white">Data and Summary</p></h4>
+  </div>
+  <div class="card-body">    
+      <div class="container">
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Clinvar summary, February 2021</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-3 col-md-3">
+                  <div style="margin-top: 40px;"> 
+                  {{dataori | safe}}
+                  </div>
+                </div>
+                <div class="col-12 col-lg-1 col-md-1 ">
+                </div>
+                <div class="col-12 col-lg-3 col-md-3 ">
+                  <img src={{pltori}} style="width: 400px;height: 280px;" >  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Clinvar without missing data</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-3 col-md-3 ">
+                  <div style="margin-top: 40px;"> 
+                  {{datapre | safe}}
+                  </div>
+                </div>
+                <div class="col-12 col-lg-1 col-md-1 ">
+                </div>
+                <div class="col-12 col-lg-3 col-md-3 ">
+                  <img src={{pltpre}} style="width: 400px;height: 280px;" >  
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Dataset for training</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-3 col-md-3"> 
+                  <div style="margin-top: 40px;"> 
+                    {{datatrain | safe}}
+                  </div>
+                </div>
+                <div class="col-12 col-lg-1 col-md-1 ">
+                </div>
+                <div class="col-12 col-lg-3 col-md-3 ">
+                  <img src={{plttrain}} style="width: 400px;height: 280px;" >  
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Dataset to reclassification</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-3 col-md-3">
+                  <div style="margin-top: 40px;">
+                    {{datapred | safe}}
+                  </div>
+                </div>
+                <div class="col-12 col-lg-1 col-md-1 ">
+                </div>
+                <div class="col-12 col-lg-3 col-md-3 ">
+                  <img src={{pltpred}} style="width: 400px;height: 280px;" >  
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+  $('table.stripe').DataTable( {
+    searching: false, paging: false, info: false
+  } );
+} );
+</script>

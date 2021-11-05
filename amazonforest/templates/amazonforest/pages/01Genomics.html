@@ -1,0 +1,152 @@
+<div class="card shadow" style="margin-top: 10px;">
+  <div class="card-header bg-secondary">
+      <h5 class="mb-0">
+        <p class="mb-0 text-white">Filter by genomic information or dbSNP rsids.</p></h5>
+  </div>
+  <div class="card-body">    
+      <div class="container">
+        <form method="POST">
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Ex: Chromossome 1, Position: 1211962, alele: C alternative: T</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                  <div class="mT-30">
+                      <div class="row">
+                        <div class="col-md-3 mb-3">
+                          <label for="FATHMM">Chromossome</label>
+                                                  <select class="form-control" id="chrom" name="chrom">
+                                                    <option value="-1" {% if chrom =='-1' %}selected="selected" {% endif %}>Select
+                                                    </option>
+                                                    <option value="1" {% if chrom =='1' %}selected="selected" {% endif %}>1</option>
+                                                    <option value="2" {% if chrom =='2' %}selected="selected" {% endif %}>2</option>
+                                                    <option value="3" {% if chrom =='3' %}selected="selected" {% endif %}>3</option>
+                                                    <option value="4" {% if chrom =='4' %}selected="selected" {% endif %}>4</option>
+                                                    <option value="5" {% if chrom =='5' %}selected="selected" {% endif %}>5</option>
+                                                    <option value="6" {% if chrom =='6' %}selected="selected" {% endif %}>6</option>
+                                                    <option value="7" {% if chrom =='7' %}selected="selected" {% endif %}>7</option>
+                                                    <option value="8" {% if chrom =='8' %}selected="selected" {% endif %}>8</option>
+                                                    <option value="9" {% if chrom =='9' %}selected="selected" {% endif %}>9</option>
+                                                    <option value="10" {% if chrom =='10' %}selected="selected" {% endif %}>10</option>
+                                                    <option value="11" {% if chrom =='11' %}selected="selected" {% endif %}>11</option>
+                                                    <option value="12" {% if chrom =='12' %}selected="selected" {% endif %}>12</option>
+                                                    <option value="13" {% if chrom =='13' %}selected="selected" {% endif %}>13</option>
+                                                    <option value="14" {% if chrom =='14' %}selected="selected" {% endif %}>14</option>
+                                                    <option value="15" {% if chrom =='15' %}selected="selected" {% endif %}>15</option>
+                                                    <option value="16" {% if chrom =='16' %}selected="selected" {% endif %}>16</option>
+                                                    <option value="17" {% if chrom =='17' %}selected="selected" {% endif %}>17</option>
+                                                    <option value="18" {% if chrom =='18' %}selected="selected" {% endif %}>18</option>
+                                                    <option value="19" {% if chrom =='19' %}selected="selected" {% endif %}>19</option>
+                                                    <option value="20" {% if chrom =='20' %}selected="selected" {% endif %}>20</option>
+                                                    <option value="21" {% if chrom =='21' %}selected="selected" {% endif %}>21</option>
+                                                    <option value="22" {% if chrom =='22' %}selected="selected" {% endif %}>22</option>
+
+                                                </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <label for="POS">Allele Position</label>
+                          <input type="text" id="POS" name="POS"  class="form-control" placeholder="POS"  value={{pos}} >
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <label for="ref">Allele Reference</label>
+                          <input type="text" id="ref" name="ref"  class="form-control" placeholder="REF"  value={{ref}}>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <label for="LRT_pred">Allele Alternative</label>
+                          <input type="text" id="alt" name="alt"  class="form-control" placeholder="ALT" value={{alt}}>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" >
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Ex: SnpID 150861311</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                  <div class="mT-30">
+                      <div class="row">
+                        <div class="col-md-3 mb-3">
+                          <label  for="RS">RSID</label>
+                          <input type="text" id="RS" name="RS"
+                                          class="form-control" placeholder="000000"
+                                          value={{rs}}>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" >
+          <div class="card-header bg-ligth">
+            <h6 class="mb-0">
+              <p class="mb-0 text-body">
+                {% if msg %}
+                            <span class="text-danger">{{ msg | safe }}</span>
+                            {% endif %}
+              </p>
+
+            </h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="masonry-item col-md-12">
+                <div class="bgc-white p-20 bd">
+                  <div class="mT-30">
+                      <button class="btn btn-secondary" type="submit">Predict</button>
+                      <a href='/amazonforest/bygenomics' class="btn btn-secondary" >clear</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+        {% if predict %}               
+            <div class="card"  style="margin-top: 10px;">
+                <div class="card-header bg-ligth" >
+                    <h6 class="mb-0">
+                        <p class="mb-0 text-body">Result</p>
+                    </h6>
+                </div>
+                <div class="card-body">    
+                  <div class="container">
+                    <div class="masonry-item col-md-12">
+                      <div class="bgc-white p-20 bd">
+                        <div class="mT-30">
+                            <div class="row">
+                                <div class="col">
+                                  <span id="stats_users" class="h2 font-weight-bold mb-0">{{dspredict}}</span>                                
+                                </div>
+                                
+                              </div>
+                              <p class="mt-3 mb-0 text-muted text-sm">
+                                <span class="text-blue mr-2 font-weight-bold "><i class="fas"></i> Probability: {{dsproba}}. </span>
+                                <span class="text-nowrap">.</span>
+                              </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            {% endif %}
+      </div>
+      
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>AmazonForest</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendors/bootstrap/v30/bootstrap.min.css') }}" type="text/css"> 
+
+    
+    <!-- link href="css/bootstrap.min.css" rel="stylesheet" -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='aforest/css/stylish-portfolio.css') }}" type="text/css">
+    <!-- link href="css/stylish-portfolio.css" rel="stylesheet" -->
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='aforest/font-awesome/css/font-awesome.min.css') }}"
+        type="text/css">
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css">
+
+
+    <script src="https://kit.fontawesome.com/609ed3ec10.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+<body>
+    <!--body style="background-color:rgb(79, 122, 178);"-->
+    <section id="top" class="services bg-primary header" style="height: 180px;" >
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h1 style="padding-bottom:15px;padding-top:0px;">
+                        <img src="{{ url_for('static', filename='images/logo/logo.png') }}">
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color:rgb(187, 187, 197);">
+        <div style="height: 10px;"></div>
+    </section>
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary" style="background-color:rgb(110, 116, 150);">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p style="padding-bottom:0px;padding-top:5px;">
+                        <font size="4px">AmazonForest aims to improve user experience towards pathogenicity prediction.
+                        </font>
+                    </p>
+                    <p style="padding-bottom:20px;padding-top:0px;">
+                        <font size="4px">A Random forest model performs meta-prediction of pathogenicity of VUS,
+                            CI, and new genetic variants.</font>
+                    </p>
+                    <hr class="small">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/bygenomics"></i>
+                                    <a href="/amazonforest/bygenomics" class="fa fa-flask  fa-stack-1x" style="color: rgb(51, 22, 22);"></a>
+                                </span>
+                                <a href="/amazonforest/bygenomics">
+                                    <h4 style="padding-bottom: 10px; color: rgb(255, 255, 255) ">
+                                        <strong>Predict by Genomics</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x bg-secondary" href="/amazonforest/bypredictors"></i>
+                                    <a href="/amazonforest/bypredictors" class="fa fa-cogs  fa-stack-1x" style="color: rgb(51, 22, 22);"></a>
+                                </span>
+                                <a href="/amazonforest/bypredictors">
+                                    <h4 style="padding-bottom: 10px; color: rgb(255, 255, 255); ">
+                                        <strong>Use SnpSift Annotation</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/model"></i>
+                                    <a href="/amazonforest/model" class="fa fa-line-chart  fa-stack-1x"></a>
+                                </span>
+                                <a href="/amazonforest/model">
+                                    <h4 style="padding-bottom: 10px; color: white; ">
+                                        <strong>Model</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/modeldata"></i>
+                                    <a href="/amazonforest/modeldata" class="fa fa-list-alt  fa-stack-1x"></a>
+                                </span>
+                                <a href="/amazonforest/modeldata">
+                                    <h4 style="padding-bottom: 10px; color: white; ">
+                                        <strong>Data Summary</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/predict"></i>
+                                    <a href="/amazonforest/predictvus" class="fa fa-play-circle  fa-stack-1x"></a>
+                                </span>
+                                <a href="/amazonforest/predictvus">
+                                    <h4 style="padding-bottom: 10px; color: white; ">
+                                        <strong>Reclassified Clinvar Data</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/predictvar"></i>
+                                    <a href="/amazonforest/rfprob" class="fa fa-play-circle-o  fa-stack-1x"></a>
+                                </span>
+                                <a href="/amazonforest/rfprob">
+                                    <h4 style="padding-bottom: 10px; color: white; ">
+                                        <strong>High Probability Dataset</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/data"></i>
+                                    <a href="/amazonforest/data" class="fa fa-database  fa-stack-1x"></a>
+                                </span>
+                                <a href="/amazonforest/data">
+                                    <h4 style="padding-bottom: 10px; color: white; ">
+                                        <strong>View Data</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x ">
+                                    <i class="fa fa-circle fa-stack-2x" href="/amazonforest/about"></i>
+                                    <a href="/amazonforest/about" class="fa fa-info  fa-stack-1x"></a>
+                                </span>
+                                <a href="/amazonforest/about">
+                                    <h4 style="padding-bottom: 10px; color: white; ">
+                                        <strong>About</strong>
+                                    </h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+
+    <section id="contact" class="contact" style="padding-bottom:0px;padding-top:30px;">
+        <footer style="padding-bottom:0px;padding-top:0px;">
+            <div class="container" style="padding-bottom:0px;padding-top:0px;">
+                <div class="row" style="padding-bottom:0px;padding-top:0px;">
+                    <div class="col-lg-10 col-lg-offset-1 text-center" style="padding-bottom:0px;padding-top:0px;">
+
+                        <h4><strong>LGHM Bioinformatics </strong></h4>
+
+                        <p>
+
+                            AmazonForest was developed at the
+                            Laboratory of Human and Medical Genetics,
+                            <br> Institute of Biological Sciences, Graduate Program
+                            of Genetics and Molecular
+                            Biology,
+                            <br>Federal University of Pará, Belém , Brazil.
+                            <br>
+                            <br>
+
+                        </p>
+                        <ul class="list-unstyled" style="padding-bottom:0px;padding-top:0px;">
+                            <li><i class="fa fa-phone fa-fw"></i> +55 (91)3201-7843</li>
+                            <li><i class="fa fa-envelope-o fa-fw"></i> <a
+                                    href="mailto:helber@ufpa.br">helber@ufpa.br</a>
+                            </li>
+                        </ul>
+                        <br>
+                        <ul class="list-inline">
+
+                            <li>
+                                <a href="https://www.lghm.com.br"><i class="fab fa-firefox fa-fw fa-3x"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/LGHM_UFPA/"><i class="fab fa-twitter fa-fw fa-3x"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/lghm_ufpa/"><i
+                                        class="fab fa-instagram fa-fw fa-3x"></i></a>
+                            </li>
+                        </ul>
+                        <p></p>
+                        <hr class="small" style="padding-bottom:0px;padding-top:0px;">
+                        <p class="text-muted">Copyright &copy; Laboratory of Human and Medical Genetics 2021<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>

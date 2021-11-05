@@ -1,0 +1,49 @@
+<div class="card shadow" style="margin-top: 10px;">
+  <div class="card-header bg-secondary">
+      <h5 class="mb-0">
+        <p class="mb-0 text-white">Result metrics of model</p></h4>
+  </div>
+  <div class="card-body">    
+      <div class="container">
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Distribution of categorical data from eight single impact predictor.</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-12 col-lg-12 col-md-12 ">
+                  <img src= {{ url_for('static', filename='images/models/categorical.png') }} style="width: 600px;height: 380px;" >  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 10px;">
+          <div class="card-header bg-ligth">
+              <h6 class="mb-0">
+                <p class="mb-0 text-body">Fine-tunning of Random Forest models.</p></h6>
+          </div>
+          <div class="card-body">    
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-12 col-lg-12 col-md-12 ">
+                  <img src= {{ url_for('static', filename='images/models/AUC.svg') }}  >  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+  $('table.stripe').DataTable( {
+    searching: false, paging: false, info: false
+  } );
+} );
+</script>
