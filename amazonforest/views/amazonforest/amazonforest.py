@@ -739,7 +739,7 @@ def annoteSimple(chrom,pos,ref,alt,rs):
 
 def getCliData(chrom,sigall,mc,limit):
     if(chrom =="-1"):
-        resp = requests.get('http://https://www2.lghm.ufpa.br/amazonforestapi/data/id/1')
+        resp = requests.get('https://www2.lghm.ufpa.br/amazonforestapi/data/id/1')
         if resp.status_code != 200:
             raise ApiError('GET /data/ {}'.format(resp.status_code))
     else:
