@@ -32,9 +32,6 @@ import io
 import base64
 
 from amazonforest  import app
-#from amazonforest.easy.EasyFacade import EasyFacade
-#from amazonforest.easy.anotation.EasyService import EasyService
-
 import uuid 
 import pandas as  pd
 
@@ -146,27 +143,6 @@ def bygenomics():
                         rs = rs
                         ))
             
-            # "ALT": "T",
-            # "CADD": "8.361",
-            # "CHROM": "1",
-            # "EASYID": "ef5cbbc8-3110-11ec-9f0a-00163e4ceb0e",
-            # "FATHMM": ".,.,T,.",
-            # "FILTER": "PASS",
-            # "GERPNR": "4.25",
-            # "GERPRS": "2.22",
-            # "ID": "RS150861311",
-            # "LRT": "N",
-            # "MetaSVM": "T",
-            # "MutationAssessor": ".,.,L,L",
-            # "MutationTaster": "N",
-            # "POS": "1014122",
-            # "PROVEAN": ".,.,N,.",
-            # "Polyphen2_HDIV": ".,.,B,B",
-            # "Polyphen2_HVAR": ".,.,B,B",
-            # "QUAL": ".",
-            # "REF": "C",
-            # "SIFT": ".,.,T,."     
-            
             
             
             if dfpredic.loc[0,"FATHMM"] != "" :
@@ -209,9 +185,6 @@ def bygenomics():
             else:
                 sift =""
 
-            #print("result")
-            #teste = [fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift]
-            
             iCountPre = 0
 
             if fathmm =='D':
@@ -223,7 +196,6 @@ def bygenomics():
             else:
                 fathmm_ds = ""
 
-            #--> ['T', 'D', 'M', 'D', 'D', 'D', 'D', 'D']
             if lrt =='D':
                 iCountPre += 1 
                 lrt_ds = "Deleterious"
@@ -311,7 +283,6 @@ def bygenomics():
                 sift_ds = ""
 
             if iCountPre > 7 :
-                #jsonresult = amazonpredict.newPredictAmazonforest(fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift)
                 jsonresult =getRFPredict(fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift)
 
                 if((jsonresult != None) and  (len(jsonresult)>0)):
@@ -430,8 +401,6 @@ def bypredictors():
 
             if iCountPre > 7 :
                 simplefc = SimpleFacade()
-                #amazonpredict =  simplefc.getSimpleRFpredict()
-                #jsonresult = amazonpredict.newPredictAmazonforest(fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift)
                 jsonresult =getRFPredict(fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift)
 
                 if((jsonresult != None) and  (len(jsonresult)>0)):
@@ -444,7 +413,6 @@ def bypredictors():
                 else:
                     dspredict = "Erro in predict" 
                     dsproba = "0.0"
-                #dsproba = "{:.2f}".format(dsproba)
             else:
                 dspredict = "AmazonForest does not work with missing data!"
                 dsproba = ""
@@ -537,35 +505,17 @@ def model():
     dfpred = simple.dataPredict()
     pltpred   = simple.dataPredictPlot()
 
-    dfmetric   = None #simple.dataMetric()
-    #dfpredictAll = simple.dataSumPred()
-    #dfpredictCIPA =simple.dataSumCIPA()
-    #dfpredictVUS = simple.dataSumVUS()
+    dfmetric   = None
     return render_template('amazonforest/layouts/auth-default.html',content=render_template(
          "amazonforest/pages/04Model.html",
-        dataori=dfori.to_html(classes='stripe',index=False)  #display compact table_id="",
+        dataori=dfori.to_html(classes='stripe',index=False)
         ,pltori = pltori
-        ,datapre=dfpre.to_html(classes='stripe',index=False) #table_id="",
+        ,datapre=dfpre.to_html(classes='stripe',index=False)
         ,pltpre = pltpre
         ))
-    # simplefc = SimpleFacade()
-    # simple = simplefc.getSimpleRFview(CategoryEnum.OneHot)
-
-    # dfAcu = simple.acuF1toDf()
-    # imgroc = simple.plotRoc("onehot")
-    # imgcm = simple.plotCMToImg("onehot")
-
-    # return render_template('amazonforest/layouts/auth-default.html',content=render_template(
-    #      "amazonforest/pages/04Model.html"
-    #     ,dataacu = dfAcu.to_html(classes='table align-items-left table-dark table-flush',index=False)
-    #     ,imgroc = imgroc
-    #     ,imgcm = imgcm
-    #     ))
 
 @bp.route('/modeldata')
 def modeldata():
-    """Renders the contact page."""
-    #ok
     simplefc = SimpleFacade()    
         
     simple = simplefc.getSimpleMetrics() 
@@ -579,19 +529,16 @@ def modeldata():
     dfpred = simple.dataPredict()
     pltpred   = simple.dataPredictPlot()
 
-    dfmetric   = None #simple.dataMetric()
-    #dfpredictAll = simple.dataSumPred()
-    #dfpredictCIPA =simple.dataSumCIPA()
-    #dfpredictVUS = simple.dataSumVUS()
+    dfmetric   = None
     return render_template('amazonforest/layouts/auth-default.html',content=render_template(
          "amazonforest/pages/05ModelData.html",
-        dataori=dfori.to_html(classes='stripe',index=False)  #display compact table_id="",
+        dataori=dfori.to_html(classes='stripe',index=False)
         ,pltori = pltori
-        ,datapre=dfpre.to_html(classes='stripe',index=False) #table_id="",
+        ,datapre=dfpre.to_html(classes='stripe',index=False)
         ,pltpre = pltpre
-        ,datatrain=dftrain.to_html(classes='stripe',index=False) #table_id="",
+        ,datatrain=dftrain.to_html(classes='stripe',index=False)
         ,plttrain = pltTrain
-        ,datapred=dfpred.to_html(classes='stripe',index=False) #table_id="",
+        ,datapred=dfpred.to_html(classes='stripe',index=False)
         ,pltpred = pltpred
         ))
 
@@ -646,7 +593,6 @@ def predictvus():
 @bp.route('/predictvusold')
 def simplerfpredict2():
     """Renders the contact page."""
-    #ajustar
     simplefc = SimpleFacade()
     simple = simplefc.getSimpleMetrics()
 
@@ -688,41 +634,18 @@ def rfprob():
                 ))
 
 
-        # simplefc = SimpleFacade()
-        # simple = simplefc.getSimpleRFpredict(CategoryEnum.LabelEcoder)
-
-        # if request.method == 'GET':
-        #     chrom = "1"
-        #     data = simple.dataPredictCutOff(chrom)
-        #     return render_template('amazonforest/layouts/auth-default.html',content=render_template(
-        #         "amazonforest/pages/07RFprob.html",
-        #         data=data.to_html(classes='table align-items-center table-dark table-flush',index=False)
-        #         ,chrom= chrom
-        #         ))
-
-        # if request.method == 'POST':
-        #     chrom = request.form.get('chrom', '-1')
-        #     data = simple.dataPredictCutOff(chrom)
-        #     return render_template('amazonforest/layouts/auth-default.html',content=render_template(
-        #         "amazonforest/pages/07RFprob.html",
-        #         data=data.to_html(classes='table align-items-center table-dark table-flush',index=False)
-        #         ,chrom= chrom
-        #        ))
 
 @bp.route('/team')
 def team():
     """Renders the nb page."""
-    #ok
     return render_template('amazonforest/layouts/auth-default.html',content=render_template(
          "amazonforest/pages/08Team.html"
         ))
 
 
-##database
-
 def getCliSigAll():
-    try:
-        conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    try:        
         with conn as con:
             cur = con.cursor()
             cur.execute(
@@ -732,19 +655,17 @@ def getCliSigAll():
             return rows
     except Exception as e:
         print(e)
-        con.rollback()
-
-        rows = cur.fetchall()
-
+        conn.rollback()
+        rows = None
         return rows
 
     finally:
-        con.close()
+        conn.close()
 
 
 def getCliMC():
-    try:
-        conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    try:        
         with conn as con:
             cur = con.cursor()
             cur.execute(
@@ -753,20 +674,15 @@ def getCliMC():
             return rows
     except Exception as e:
         print(e)
-        con.rollback()
-        rows = cur.fetchall()
-
-        return rows
+        conn.rollback()
+        return None
 
     finally:
-        # return render_template("result.html",msg = msg)
-        con.close()
+        conn.close()
 
 
 def annoteSimple(chrom,pos,ref,alt,rs):
-    #nova implementacao
-    srv = "http://0.0.0.0:8001"
-    #srv = "http://127.0.0.1:5000"
+    srv = "https://wwww2.lghm.ufpa.br"
 
     basedir = os.path.abspath(os.path.dirname(__file__))
     pathlog = os.path.join(basedir,"logrf.txt")        
@@ -822,14 +738,9 @@ def annoteSimple(chrom,pos,ref,alt,rs):
 
 
 def getCliData(chrom,sigall,mc,limit):
-    #nova implementacao
-    
     if(chrom =="-1"):
-        #resp = requests.get('https://www2.lghm.ufpa.br/amazonforestapi/data/id/1')
-
-        resp = requests.get('http://0.0.0.0:8001/amazonforestapi/data/id/1')
+        resp = requests.get('http://https://www2.lghm.ufpa.br/amazonforestapi/data/id/1')
         if resp.status_code != 200:
-            # This means something went wrong.
             raise ApiError('GET /data/ {}'.format(resp.status_code))
     else:
         headers = {'content-type': 'application/json'}
@@ -837,8 +748,7 @@ def getCliData(chrom,sigall,mc,limit):
                                 ,"sigall" : sigall
                                 ,"mc" : mc
                                 ,"limit" :limit}]}
-        #resp = requests.post('https://www2.lghm.ufpa.br/amazonforestapi/data', data = json.dumps(payload),headers=headers)
-        resp = requests.post('http://0.0.0.0:8001/amazonforestapi/data', data = json.dumps(payload),headers=headers)
+        resp = requests.post('https://www2.lghm.ufpa.br/amazonforestapi/data', data = json.dumps(payload),headers=headers)
 
 
     jsdict= resp.json()["aforestreq"]
@@ -847,53 +757,17 @@ def getCliData(chrom,sigall,mc,limit):
     return df
 
 
-    # try:
-    #     conn = sqlite3.connect("amazonforest/ic/data/simple.db")
-    #     conn.row_factory = sqlite3.Row
-
-    #     sql = "select * FROM pdclinvar where 1=1"
-    #     if(chrom != "-1"):
-    #         sql += " and CHROM ='" + chrom+"'"
-        
-    #     if(sigall != "-1"):
-    #         sql += " and CLNSIG like'%" + sigall+"%'"
-
-    #     if(mc != "-1"):
-    #         sql += " and MC like '%" + mc +"%'"
-
-    #     sql += " limit  " + limit
-
-    #     with conn as con:
-    #         cur = con.cursor()
-    #         cur.execute(sql)
-    #         rows = cur.fetchall()
-    #         return rows
-    # except Exception as e:
-    #     print(e)
-    #     con.rollback()
-    #     rows = cur.fetchall()
-
-    #     return rows
-
-    # finally:
-    #     # return render_template("result.html",msg = msg)
-    #     con.close()
-
+    
 
 def getCliDataPredictVus(chrom,sigall,mc,limit):
-    #nova implementacao
-    
     if(chrom =="-1"):
-        #resp = urllib.requests.get('https://www2.lghm.ufpa.br/amazonforestapi/datapred/id/1/limit/5')
-        resp = requests.get('http://0.0.0.0:8001/amazonforestapi/datapred/id/1/limit/10')
+        resp = requests.get('https://www2.lghm.ufpa.br/amazonforestapi/datapred/id/1/limit/10')
     else:
-        resp = requests.get("http://0.0.0.0:8001/amazonforestapi/datapred/id/"+chrom+"/limit/"+limit)                                
+        resp = requests.get("https://www2.lghm.ufpa.br/amazonforestapi/datapred/id/"+chrom+"/limit/"+limit)                                
     
     if resp.status_code != 200:
         return None
 
-
-        
 
     jsdict= resp.json()["aforestreq"]
     js = json.dumps(jsdict)
@@ -901,17 +775,14 @@ def getCliDataPredictVus(chrom,sigall,mc,limit):
     return df
 
 def getCliDataCutOff(chrom):
-    #nova implementacao
     
     if(chrom =="-1"):
-        #resp = urllib.requests.get('https://www2.lghm.ufpa.br/amazonforestapi/cutoff/id/1')
-        resp = requests.get('http://0.0.0.0:8001/amazonforestapi/cutoff/id/1')
+        resp = requests.get('https://www2.lghm.ufpa.br/amazonforestapi/cutoff/id/1')
         if resp.status_code != 200:
             # This means something went wrong.
             raise ApiError('GET /data/ {}'.format(resp.status_code))
     else:
-        #resp = urllib.requests.get('https://www2.lghm.ufpa.br/amazonforestapi/cutoff/id/'+chrom)
-        resp = requests.get('http://0.0.0.0:8001/amazonforestapi/cutoff/id/'+chrom)
+        resp = requests.get('https://www2.lghm.ufpa.br/amazonforestapi/cutoff/id/'+chrom)
         if resp.status_code != 200:
             # This means something went wrong.
             raise ApiError('GET /data/ {}'.format(resp.status_code))
@@ -946,7 +817,7 @@ def getRFPredict(fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift):
             return rows[0]
     except Exception as e:
         print(e)
-        con.rollback()
+        conn.rollback()
         return None
 
     finally:
@@ -957,31 +828,11 @@ def getRFPredict(fathmm,lrt,mutass,muttaster,provean,pph2_hdiv,pph2_hvar,sift):
 def getCliDataInfo(bravaid):
     #future developer
     pass
-    # try:
-    #     conn = sqlite3.connect("amazonforest/ic/data/simple.db")
-    #     conn.row_factory = sqlite3.Row
-
-    #     sql = "select 	* FROM pdclinvar where BravaID='"+ bravaid+"'"
-
-    #     with conn as con:
-    #         cur = con.cursor()
-    #         cur.execute(sql)
-    #         rows = cur.fetchall()
-    #         return rows[0]
-    # except Exception as e:
-    #     print(e)
-    #     con.rollback()
-    #     rows = cur.fetchall()
-
-    #     return rows
-
-    # finally:
-    #     # return render_template("result.html",msg = msg)
-    #     con.close()
+    
 
 def getCliDataCount(chrom,sigall,mc):
+    conn = sqlite3.connect("amazonforest/ic/data/simple.db")
     try:
-        conn = sqlite3.connect("amazonforest/ic/data/simple.db")
         conn.row_factory = sqlite3.Row
 
         sql = "select count(BravaID) BravaID FROM pdclinvar where 1=1"
@@ -1002,7 +853,7 @@ def getCliDataCount(chrom,sigall,mc):
             return rows[0][0]
     except Exception as e:
         print(e)
-        con.rollback()
+        conn.rollback()
         return "0"
 
     finally:
@@ -1011,8 +862,9 @@ def getCliDataCount(chrom,sigall,mc):
 
 
 def getDataClnSigAjusted():
+    conn = sqlite3.connect("amazonforest/ic/data/simple.db")
     try:
-        conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+        
         conn.row_factory = sqlite3.Row
 
         sql = " SELECT 1 ID,  'BENIG' DSSIGN UNION  SELECT 2 ID,  'PATHO' DSSIGN UNION SELECT 3 ID,  'CIPAT' DSSIGN UNION SELECT 4 ID,  'UNSIG' DSSIGN"
@@ -1023,22 +875,16 @@ def getDataClnSigAjusted():
             rows = cur.fetchall()
             return rows
     except Exception as e:
-        print(e)
-        con.rollback()
-        rows = cur.fetchall()
-
-        return rows
+        return None
 
     finally:
-        # return render_template("result.html",msg = msg)
-        con.close()
+        conn.close()
 
 
 def getDataClnSig():
-    try:
-        conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    try:        
         conn.row_factory = sqlite3.Row
-
         sql = " SELECT  CLNSIg,count(BravaID) Count FROM pdclinvar where CLNSIg <> '' group by CLNSIG"
 
         with conn as con:
@@ -1047,19 +893,15 @@ def getDataClnSig():
             rows = cur.fetchall()
             return rows
     except Exception as e:
-        print(e)
-        con.rollback()
-        rows = cur.fetchall()
-        return rows
+        return None
 
     finally:
-        # return render_template("result.html",msg = msg)
-        con.close()
+        conn.close()
 
 
 def getDataClnMC():
-    try:
-        conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    conn = sqlite3.connect("amazonforest/ic/data/simple.db")
+    try:        
         conn.row_factory = sqlite3.Row
 
         sql = " SELECT * FROM clinvar_mc "
@@ -1070,15 +912,10 @@ def getDataClnMC():
             rows = cur.fetchall()
             return rows
     except Exception as e:
-        print(e)
-        con.rollback()
-        rows = cur.fetchall()
-
-        return rows
+        return None
 
     finally:
-        # return render_template("result.html",msg = msg)
-        con.close()
+        conn.close()
 
 
 
