@@ -17,9 +17,9 @@ to Execute
 python run.py
 
 
-For to use R Script acess folder ##meta_prediction
+For to use R Script access folder ## meta_prediction
 
-
+# 
 
 Citation: Palheta, H.G.A.; Gonçalves, W.G.; Brito, L.M.; dos Santos, A.R.; dos Reis Matsumoto, M.; 
           Ribeiro-dos-Santos, Â.; de Araújo, G.S. AmazonForest: In Silico Metaprediction of Pathogenic 
