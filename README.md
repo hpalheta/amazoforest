@@ -3,25 +3,37 @@
 
 The model is described in https://www.mdpi.com/2079-7737/11/4/538.
 
-
-Use
-
-python3 -m venv amazonforest-env
-
-source amazonforest-env/bin/activate
-
-pip install -r requirements.txt
-
-to Execute
-
-python run.py
+## Use with python
 
 
-##
 
-For to use R Script access folder ## meta_prediction
+```bash
+$ python3 -m venv amazonforest-env
+```
+
+```bash
+$ source amazonforest-env/bin/activate
+```
+
+```bash
+$ pip install -r requirements.txt
+```
+
+Execute:
+
+```bash
+$ python run.py
+```
+
+
+
+## Use with R Script
+
+For to use R Script. you must access folder <b>meta_prediction</b>. In file amazon forest.R is an example the script for to use amazon forest model and RF13.Rdata is the model in format R.
 
 # 
+
+
 
 Citation: Palheta, H.G.A.; Gonçalves, W.G.; Brito, L.M.; dos Santos, A.R.; dos Reis Matsumoto, M.; 
           Ribeiro-dos-Santos, Â.; de Araújo, G.S. AmazonForest: In Silico Metaprediction of Pathogenic 
@@ -29,3 +41,9 @@ Citation: Palheta, H.G.A.; Gonçalves, W.G.; Brito, L.M.; dos Santos, A.R.; dos 
  
 Corresponding authors: Prof. Dr. Gilderlanio Santana de Araujo (gilderlanio [at] gmail.com)
                         Ms.C Helber Palheta (hpalheta [at] gmail.com)
+
+
+
+
+
+
