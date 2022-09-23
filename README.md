@@ -29,7 +29,7 @@ $ python run.py
 
 ## Use with R Script
 
-For to use R Script. you must access folder <b>meta_prediction</b>. In file amazon forest.R is an example the script for to use amazon forest model and RF13.Rdata is the model in format R.
+For to use R Script. you must access folder <b>meta_prediction</b>. In file <b>amazonforest.R</b> is an example the script for to use amazon forest model and <b>RF13.Rdata</b> is the model in format R.
 
 # 
 
